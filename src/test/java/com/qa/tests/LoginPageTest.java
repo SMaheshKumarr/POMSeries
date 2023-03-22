@@ -1,10 +1,14 @@
 package com.qa.tests;
 
+import java.io.FileNotFoundException;
+
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qa.base.BaseTest;
 import com.qa.constants.WebConstant;
+import com.qa.utils.ExcelUtil;
 
 public class LoginPageTest extends BaseTest{
 	
@@ -22,9 +26,19 @@ public class LoginPageTest extends BaseTest{
 		Assert.assertTrue(linkexist);
 	}
 	
-	@Test(priority = 3)
-	public void login_Test() {
-		LoginPageObj.doLogin(prop.getProperty("username").trim(),prop.getProperty("password").trim());
+	@DataProvider
+	public Object[][] getTestData() throws FileNotFoundException {
+		
+			Object loginData[][]= ExcelUtil.getExcelData();
+			
+			return loginData;
+		
+	}
+	
+	
+	@Test(priority = 3, dataProvider="getTestData")
+	public void login_Test(String Email, String Password) {
+		LoginPageObj.doLogin(Email,Password);
 	}
 
 }

@@ -1,5 +1,8 @@
 package com.qa.tests;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import java.util.Map;
 
 import org.testng.Assert;
@@ -31,7 +34,7 @@ public class ProductInfoPageTest extends BaseTest{
 		SearchPageObj=AccountPageObj.performSearch(searchProduct);
 		ProductInfoPageObj=SearchPageObj.selectProduct(selectProduct);
 		int imgCount = ProductInfoPageObj.productImageCount();
-		Assert.assertEquals(imgCount, imageCount);
+		AssertJUnit.assertEquals(imgCount, imageCount);
 	}
 	
 	@Test
@@ -41,8 +44,8 @@ public class ProductInfoPageTest extends BaseTest{
 		Map<String, String> actProductInfo = ProductInfoPageObj.getProductInfo();
 		System.out.println(actProductInfo);
 		
-		softAssert.assertEquals(actProductInfo.get("Brand"), " Apple");
-		softAssert.assertEquals(actProductInfo.get("Product Code"), " Product 17");
+		AssertJUnit.assertEquals(actProductInfo.get("Brand"), " Apple");
+		AssertJUnit.assertEquals(actProductInfo.get("Product Code"), " Product 17");
 		
 		softAssert.assertAll();
 		

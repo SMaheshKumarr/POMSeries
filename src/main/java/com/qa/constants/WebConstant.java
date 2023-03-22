@@ -10,6 +10,7 @@ public class WebConstant {
 	
 	public static final String ACCOUNT_PAGE_TITLE = "My Account";
 	public static final String ACCCOUNT_PAGE_PATH_URL = "route=account/account";
+	public static final String LOGINPAGE_SHEET_NAME= "Login";
 	
 	
 	

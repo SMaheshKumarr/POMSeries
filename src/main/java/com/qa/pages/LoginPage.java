@@ -28,7 +28,7 @@ public class LoginPage {
 
 	public String getPageTitle() {
 		String loginPageTit = eUtil.waitForTitle(WebConstant.WAIT_MIN_TIMEOUT,WebConstant.LOGIN_PAGE_TITLE);
-		System.out.println("Login Page Title:" + loginPageTit);
+		//System.out.println("Login Page Title:" + loginPageTit);
 		return loginPageTit;
 	}
 
@@ -36,17 +36,17 @@ public class LoginPage {
 		return eUtil.waitForElementVisible(forpwd, WebConstant.WAIT_MEDIUM_TIMEOUT).isDisplayed();
 	}
 
-	public AccountPage doLogin(String un,String pwd) {
+	public AccountPage doLogin(String Email,String Password) {
 		
-		System.out.println("Credentials:" + un + "," + pwd);
+		System.out.println("Credentials:" + Email + "," + Password);
 		/*
 		 * driver.findElement(email).sendKeys(un);
 		 * driver.findElement(password).sendKeys(pwd);
 		 * driver.findElement(loginButton).click();
 		 */
 		
-		eUtil.waitForElementVisible(email, WebConstant.WAIT_MEDIUM_TIMEOUT).sendKeys(un);
-		eUtil.doSendKeys(password, pwd);
+		eUtil.waitForElementVisible(email, WebConstant.WAIT_MEDIUM_TIMEOUT).sendKeys(Email);
+		eUtil.doSendKeys(password, Password);
 		eUtil.doClick(loginButton);
 		
 		return new AccountPage(driver);
