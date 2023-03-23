@@ -7,6 +7,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<extentreports-version>5.0.9</extentreports-version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -49,6 +50,16 @@
 			<groupId>org.apache.poi</groupId>
 			<artifactId>openxml4j</artifactId>
 			<version>1.0-beta</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${extentreports-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>SeleniumPrac</groupId>
+			<artifactId>SeleniumPrac</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

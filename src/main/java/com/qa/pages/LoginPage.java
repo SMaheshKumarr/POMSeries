@@ -36,17 +36,17 @@ public class LoginPage {
 		return eUtil.waitForElementVisible(forpwd, WebConstant.WAIT_MEDIUM_TIMEOUT).isDisplayed();
 	}
 
-	public AccountPage doLogin(String Email,String Password) {
+	public AccountPage doLogin(String email,String password) {
 		
-		System.out.println("Credentials:" + Email + "," + Password);
+		System.out.println("Credentials:" + email + "," + password);
 		/*
 		 * driver.findElement(email).sendKeys(un);
 		 * driver.findElement(password).sendKeys(pwd);
 		 * driver.findElement(loginButton).click();
 		 */
 		
-		eUtil.waitForElementVisible(email, WebConstant.WAIT_MEDIUM_TIMEOUT).sendKeys(Email);
-		eUtil.doSendKeys(password, Password);
+		eUtil.waitForElementVisible(this.email, WebConstant.WAIT_MEDIUM_TIMEOUT).sendKeys(email);
+		eUtil.doSendKeys(this.password, password);
 		eUtil.doClick(loginButton);
 		
 		return new AccountPage(driver);
