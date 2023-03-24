@@ -6,7 +6,7 @@
 
 <listeners>
 <listener class-name="com.qa.listeners.ExtentReportListener"/>
-
+<listener class-name="com.qa.listeners.TestAllureListener"/>
 </listeners>
 	<test name="Login Page Test">
 		<classes>
