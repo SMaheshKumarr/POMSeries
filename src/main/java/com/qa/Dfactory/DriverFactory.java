@@ -60,7 +60,7 @@ public class DriverFactory {
 			System.out.println("please enter correct browser"+browserName);
 		}
 			
-		getDriver().manage().deleteAllCookies();
+		getDriver().manage().deleteAllCookies();  
 		getDriver().manage().window().maximize();
 		//driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
 		getDriver().get(prop.getProperty("url"));
@@ -69,7 +69,7 @@ public class DriverFactory {
 	}
 	
 	/**
-	 * Get the local thread copy of the driver
+	 * Get the local thread copy of the driver. Set local driver is already set in the above method
 	 */
 	public synchronized static WebDriver getDriver() {
 		return tlDriver.get();
@@ -91,7 +91,13 @@ public class DriverFactory {
 		}
 		return prop;
 	}
+	
+	
 
+	/**
+	 * To take the screenshot
+	 * @return
+	 */
 	public static String getScreenshot() {
 		File srcFile =((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
 		String path = System.getProperty("user.dir")+"/screenshot"+System.currentTimeMillis()+".png";
